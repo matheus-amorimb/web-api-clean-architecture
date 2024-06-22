@@ -2,3 +2,4 @@
 **/src/**/bin
 **/test/**/obj
 **/test/**/bin
+**/.idea/
