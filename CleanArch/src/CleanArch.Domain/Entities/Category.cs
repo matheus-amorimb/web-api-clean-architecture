@@ -16,6 +16,7 @@ public sealed class Category
     
     public Category(Guid id, string name)
     {
+        Id = id;
         SetName(name);
     }
 
