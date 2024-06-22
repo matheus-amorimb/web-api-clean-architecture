@@ -47,18 +47,19 @@ public sealed class Product : Entity
 
     private void SetPrice(decimal price)
     {
-        if (price < 0) throw new DomainException("Invalid description. Price must be greater than 0.01");
+        if (price < 0.01m) throw new DomainException("Invalid description. Price must be greater than 0.01");
         Price = price;
     }
 
     private void SetStock(int stock)
     {
-        if (stock < 0) throw new DomainException("Invalid stock. Stock must be greater than 0");
+        if (stock <= 0) throw new DomainException("Invalid stock. Stock must be greater than 0");
         Stock = stock;
     }    
     private void SetImage(string image)
     {
         if (image.Length > 250) throw new DomainException("Invalid image. Image must have a maximum 250 characters");
+        Image = image;
     }
     
 }
