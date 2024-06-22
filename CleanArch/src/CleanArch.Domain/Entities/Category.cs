@@ -1,6 +1,35 @@
+using System.Data;
+using CleanArch.Domain.Validations;
+
 namespace CleanArch.Domain.Entities;
 
-public class Category
+public sealed class Category
 {
+    public Guid Id { get; private set;}
+    public string? Name { get; private set;}
+    public ICollection<Product>? Products { get; set;}
+
+    public Category(string name)
+    {
+        SetName(name);
+    }    
+    
+    public Category(Guid id, string name)
+    {
+        SetName(name);
+    }
+
+    public void Update(string name)
+    {
+        SetName(name);
+    }
+    
+    private void SetName(string name)
+    {
+        if (string.IsNullOrEmpty(name)) throw new DomainException("Invalid name. Name cannot be empty.");
+        if (name.Length < 3) throw new DomainException("Invalid name. Name must be at least 3 letter length");
+
+        Name = name;
+    }
     
 }
