@@ -1,0 +1,6 @@
+@CleanArch.WebUI_HostAddress = http://localhost:5063
+
+GET {{CleanArch.WebUI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
