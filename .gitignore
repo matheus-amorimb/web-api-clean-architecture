@@ -3,3 +3,109 @@
 **/test/**/obj
 **/test/**/bin
 **/.idea/
+# Ignore build directories
+src/**/bin/
+src/**/obj/
+
+test/**/bin/
+test/**/obj/
+
+
+# Ignore Rider project settings
+*.DotSettings.user
+
+# Ignore Visual Studio temporary files, build results, and
+# database files
+*.DS_Store
+*.vscode/
+.vscode/*
+*.vs
+.vs/
+.vscode/
+.vscode/
+.vscode/*
+.vscode/*
+**/.vscode/*
+.vscode/*
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Python virtual environments
+.venv
+venv/
+env/
+env.bak/
+env/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# macOS hidden files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Icon must end with two \r
+Icon\r\r
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# Application-specific
+*.pid
+
+# VS Code directories
+.vscode/
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+.vscode/*.code-workspace
+
+# Ignore application settings
+CleanArch.WebUI/appsettings.Development.json
+CleanArch.WebUI/appsettings.json
+
+# Ignore Rider files
+.idea/
+.idea/*
+
+# Ignore build artifacts
+*.dll
+*.exe
+*.local
+*.log
+*.pdb
+*.cache
+*.pyc
+*.class
+*.sln.docstates
