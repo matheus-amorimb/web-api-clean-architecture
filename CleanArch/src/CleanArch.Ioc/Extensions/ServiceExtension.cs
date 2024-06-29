@@ -1,3 +1,6 @@
+using CleanArch.Application.Interfaces;
+using CleanArch.Application.Mappings;
+using CleanArch.Application.Services;
 using CleanArch.Data.Context;
 using CleanArch.Data.Repositories;
 using CleanArch.Domain.Interfaces;
@@ -27,5 +30,8 @@ public static class ServiceExtension
 
     public static void AddServices(this IServiceCollection serviceCollection)
     {
+        serviceCollection.AddScoped<IProductService, ProductService>();
+        serviceCollection.AddScoped<ICategoryService, CategoryService>();
+        serviceCollection.AddAutoMapper(typeof(DomainToDtoMappingProfile));
     }
 }
