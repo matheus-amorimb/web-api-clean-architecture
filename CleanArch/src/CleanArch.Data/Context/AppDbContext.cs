@@ -1,3 +1,4 @@
+using System.Reflection;
 using CleanArch.Data.EntitiesConfiguration;
 using CleanArch.Data.Utilities;
 using CleanArch.Domain.Entities;
@@ -15,12 +16,7 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Category>().ToTable("category");
-        modelBuilder.Entity<Category>().RenameColumnsNameToLower();
-        modelBuilder.Entity<Product>().ToTable("product");
-        modelBuilder.Entity<Product>().HasOne(product => product.Category).WithMany(category => category.Products).HasForeignKey()
-            .IsRequired();
-        modelBuilder.Entity<Product>().RenameColumnsNameToLower();
-        base.OnModelCreating(modelBuilder);
+        base.OnModelCreating(modelBuilder); 
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
     }
 }

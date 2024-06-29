@@ -11,7 +11,9 @@ public class ProductConfig : IEntityTypeConfiguration<Product>
     {
         builder.ToTable("product");
         builder.HasKey(product => product.Id);
-        builder.HasOne(product => product.Category).WithMany(category => category.Products).HasForeignKey()
+        builder.HasOne(product => product.Category)
+            .WithMany(category => category.Products)
+            .HasForeignKey(product => product.CategoryId)
             .IsRequired();
         builder.RenameColumnsNameToLower();
     }
