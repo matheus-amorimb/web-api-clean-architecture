@@ -9,4 +9,9 @@ public class CategoryRepository : Repository<Category>, ICategoryRepository
     public CategoryRepository(AppDbContext dbContext) : base(dbContext)
     {
     }
+
+    public async Task<Category?> GetByName(string name)
+    {
+        return await Context.Category.FindAsync(name);
+    }
 }
