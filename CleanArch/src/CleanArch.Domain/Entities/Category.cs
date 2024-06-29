@@ -1,4 +1,5 @@
 using System.Data;
+using System.Text.Json.Serialization;
 using CleanArch.Domain.Validations;
 
 namespace CleanArch.Domain.Entities;
@@ -6,6 +7,7 @@ namespace CleanArch.Domain.Entities;
 public sealed class Category : Entity
 {
     public string? Name { get; private set;}
+    
     public ICollection<Product> Products { get; } = new List<Product>();
 
     public Category(string name)

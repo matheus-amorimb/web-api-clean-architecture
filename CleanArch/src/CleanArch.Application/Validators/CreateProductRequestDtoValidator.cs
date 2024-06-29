@@ -20,5 +20,8 @@ public class CreateProductRequestDtoValidator : AbstractValidator<CreateProductR
         RuleFor(dto => dto.Stock)
             .NotEmpty().WithMessage("Description is required.")
             .GreaterThan(1).WithMessage("Stock must be greater than 1.");
+
+        RuleFor(dto => dto.CategoryId)
+            .NotEmpty().WithMessage("Category Id is required.");
     }
 }
