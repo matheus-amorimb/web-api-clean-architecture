@@ -1,3 +1,4 @@
+using System.Reflection;
 using CleanArch.Application.Interfaces;
 using CleanArch.Application.Mappings;
 using CleanArch.Application.Services;
@@ -33,5 +34,7 @@ public static class ServiceExtension
         serviceCollection.AddScoped<IProductService, ProductService>();
         serviceCollection.AddScoped<ICategoryService, CategoryService>();
         serviceCollection.AddAutoMapper(typeof(DomainToDtoMappingProfile));
+        serviceCollection.AddAutoMapper(typeof(DtoToHandlerMappingProfile));
+        serviceCollection.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(Assembly.Load("CleanArch.Application")));
     }
 }
