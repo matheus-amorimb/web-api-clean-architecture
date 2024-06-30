@@ -5,9 +5,9 @@ namespace CleanArch.Application.Products.Commands;
 
 public class ProductRemoveCommand : IRequest<Product>
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 
-    public ProductRemoveCommand(int id)
+    public ProductRemoveCommand(Guid id)
     {
         Id = id;
     }
