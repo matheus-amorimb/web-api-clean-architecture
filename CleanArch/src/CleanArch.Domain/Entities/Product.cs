@@ -19,6 +19,15 @@ public sealed class Product : Entity
         SetPrice(price);
         SetStock(stock);
         SetImage(image!);
+    }    
+    public Product(string? name, string? description, decimal price, int stock, string? image, Guid categoryId)
+    {
+        SetName(name!);
+        SetDescription(description!);
+        SetPrice(price);
+        SetStock(stock);
+        SetImage(image!);
+        CategoryId = categoryId;
     }
     public Product(Guid id, string? name, string? description, decimal price, int stock, string? image)
     {
@@ -28,6 +37,16 @@ public sealed class Product : Entity
         SetPrice(price);
         SetStock(stock);
         SetImage(image!);
+    }
+
+    public void Update(string? name, string? description, decimal price, int stock, string? image, Guid categoryId)
+    {
+        SetName(name!);
+        SetDescription(description!);
+        SetPrice(price);
+        SetStock(stock);
+        SetImage(image!);
+        CategoryId = categoryId;
     }
     
     private void SetName(string name)
@@ -61,5 +80,4 @@ public sealed class Product : Entity
         if (image.Length > 250) throw new DomainException("Invalid image. Image must have a maximum 250 characters");
         Image = image;
     }
-    
 }
