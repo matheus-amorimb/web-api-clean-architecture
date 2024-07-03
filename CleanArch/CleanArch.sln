@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArch.Data", "src\Clean
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArch.Ioc", "src\CleanArch.Ioc\CleanArch.Ioc.csproj", "{D35683AC-3B9F-444B-AFC4-F3A286A3D3D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArch.WebUI", "src\CleanArch.WebUI\CleanArch.WebUI.csproj", "{5593E2F3-A963-45BE-B581-656C0EC2F467}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArch.Api", "src\CleanArch.Api\CleanArch.Api.csproj", "{5593E2F3-A963-45BE-B581-656C0EC2F467}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArch.Domain.Test", "test\CleanArch.Domain.Test\CleanArch.Domain.Test.csproj", "{2C20E96F-FF1A-46BD-9D4B-6783CD939D77}"
 EndProject

@@ -3,7 +3,7 @@ using CleanArch.Application.Interfaces;
 using CleanArch.Application.Validators;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CleanArch.WebUI.Controllers;
+namespace CleanArch.Api.Controllers;
 
 [ApiController]
 [Route("api/product")]
