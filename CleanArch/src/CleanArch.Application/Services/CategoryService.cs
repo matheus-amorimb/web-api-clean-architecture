@@ -19,7 +19,7 @@ public class CategoryService : ICategoryService
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<CategoryResponseDto>> GetCategories()
+    public async Task<IEnumerable<CategoryResponseDto>> GetAll()
     {
         var categories = await _categoryRepository.GetAllAsync();
         return _mapper.Map<IEnumerable<CategoryResponseDto>>(categories);
@@ -37,18 +37,18 @@ public class CategoryService : ICategoryService
         var existingCategory = await _categoryRepository.GetByName(normalizedName);
         if(existingCategory is not null) throw new ArgumentException("Category already exists.");
         var categoryDtoWithNormalizedName = new CreateCategoryRequestDto(Name: normalizedName); 
-        var category = _mapper.Map<Category>(categoryDtoWithNormalizedName);
+        var category = new Category(Guid.NewGuid(), categoryDtoWithNormalizedName.Name);
         await _categoryRepository.CreateAsync(category);
     }
 
     public async Task Update(UpdateCategoryRequestDto updateCategoryRequestDto)
     {
         var existingCategory = await _categoryRepository.GetByIdAsync(updateCategoryRequestDto.Id);
-        if(existingCategory is not null) throw new ArgumentException("Category not found for this id.");
+        if(existingCategory is null) throw new ArgumentException("Category not found for this id.");
         var normalizedName = updateCategoryRequestDto.Name.NormalizeString();
-        var categoryDtoWithNormalizedName = new CreateCategoryRequestDto(Name: normalizedName); 
-        var category = _mapper.Map<Category>(categoryDtoWithNormalizedName);
-        await _categoryRepository.UpdateAsync(category);
+        var categoryDtoWithNormalizedName = updateCategoryRequestDto with {Name = normalizedName}; 
+        existingCategory = _mapper.Map<Category>(categoryDtoWithNormalizedName);
+        await _categoryRepository.UpdateAsync(existingCategory);
     }
 
     public async Task Delete(Guid id)
