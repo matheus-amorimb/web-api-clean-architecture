@@ -2,11 +2,13 @@ using System.Reflection;
 using CleanArch.Data.EntitiesConfiguration;
 using CleanArch.Data.Utilities;
 using CleanArch.Domain.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanArch.Data.Context;
 
-public class AppDbContext : DbContext
+public class AppDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
 {
     public AppDbContext(DbContextOptions<AppDbContext> context) : base(context)
     { }
