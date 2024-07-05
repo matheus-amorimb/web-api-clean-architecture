@@ -5,7 +5,7 @@ using MediatR;
 
 namespace CleanArch.Application.Products.Handlers;
 
-public class ProductRemoveCommandHandler : IRequestHandler<ProductUpdateCommand, Product>
+public class ProductRemoveCommandHandler : IRequestHandler<ProductRemoveCommand, Product>
 {
     private readonly IProductRepository _productRepository;
 
@@ -14,7 +14,7 @@ public class ProductRemoveCommandHandler : IRequestHandler<ProductUpdateCommand,
         _productRepository = productRepository;
     }
     
-    public async Task<Product> Handle(ProductUpdateCommand request, CancellationToken cancellationToken)
+    public async Task<Product> Handle(ProductRemoveCommand request, CancellationToken cancellationToken)
     {
         var existingProduct = await _productRepository.GetByIdAsync(request.Id);
         if (existingProduct == null) throw new ApplicationException("Product not found");

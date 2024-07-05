@@ -47,5 +47,19 @@ public class ProductController : ControllerBase
         await _productService.Create(createProductRequestDto);
         return Ok(createProductRequestDto);
     }
+
+    [HttpPut]
+    public async Task<IActionResult> Update(UpdateProductRequestDto updateProductRequestDto)
+    {
+        await _productService.Update(updateProductRequestDto);
+        return Ok(updateProductRequestDto);
+    }
+
+    [HttpDelete]
+    public async Task<IActionResult> Delete([FromBody] Guid id)
+    {
+        await _productService.Delete(id);
+        return Ok($"Product with id {id} deleted");
+    }
     
 }
